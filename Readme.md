@@ -18,6 +18,35 @@ The framework is designed with long-term maintainability, clarity, and scalabili
 
 ---
 
+## 🧠 Design Philosophy (Why This Framework Looks This Way)
+
+This is my first Playwright automation framework, built after ~2.4 years of experience designing and maintaining Selenium-based test frameworks.
+
+Rather than focusing only on Playwright syntax, I intentionally approached this project from a framework and scalability perspective, reflecting how automation is built in real-world teams.
+
+Key Design Choices
+
+Framework-first structure (BasePage, utilities, fixtures, logging) to keep tests clean, consistent, and maintainable as the project scales.
+
+Centralized locator handling to enforce consistency and simplify future refactoring, inspired by large Selenium-based automation systems.
+
+Pytest-driven lifecycle management using fixtures and conftest.py for clean setup/teardown and extensibility.
+
+Logging support to improve debugging and CI/CD failure analysis.
+
+Playwright-Specific Considerations
+
+Playwright encourages powerful, readable locators (get_by_role, get_by_test_id, etc.), which are used throughout the project.
+This framework balances Playwright-native capabilities with proven automation design principles.
+
+Future iterations will reduce unnecessary abstraction and lean further into idiomatic Playwright patterns as the framework evolves.
+
+### Intent
+
+This project is intentionally treated as Version 1 and represents my transition from Selenium-heavy automation to Playwright, with a focus on clarity, scalability, and long-term maintainability rather than demo-style scripts.
+
+---
+
 ## ✨ Key Features
 
 ✔ Playwright-based UI automation using Python </br>

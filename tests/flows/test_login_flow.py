@@ -7,12 +7,15 @@ log= Logger().get_logger(__name__)
 
 class TestLoginFlow():
     @pytest.mark.flows
-    def test_login_flow(self,page):
+    def test_login_flow(self,page,api_recorder):
         login_page=LoginPage(page)
         page.goto("https://www.saucedemo.com/")
         login_page.type_username("standard_user")
         login_page.type_password("secret_sauce")
         login_page.click_submit()
 
+        apis=api_recorder.get_records()
+
+        log.info(apis)
+
         log.info("Login flow execution completed")
-        

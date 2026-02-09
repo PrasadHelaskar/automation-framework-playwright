@@ -1,3 +1,5 @@
+from playwright.async_api import expect
+
 from utils.logger import Logger
 from locatores.locator import Locator
 
@@ -16,7 +18,5 @@ class BasePage:
     def type(self,locator,data):
         self._locate_element(locator).fill(data)
 
-    def assert_title(self, title: str):
-        current_title=self.page.title()
-        assert current_title == title
-        return current_title
+    def assert_title(self, title: str,page):
+        expect(page).not_to_have_title(title)
