@@ -1,4 +1,5 @@
 from utils.logger import Logger
+from locatores.locator import Locator
 
 log=Logger().get_logger(__name__)
 
@@ -6,28 +7,16 @@ class BasePage:
     def __init__(self,page):
         self.page=page
 
-    def _locate_element(self,stratergy: str,value: str, name: str=None):
-        stratergy= stratergy.lower()
-        try:
-            if stratergy == "role":
-                element=self.page.get_by_role(value, name=name)
+    def _locate_element(self, locator: Locator):
+        return locator.resolve(self.page)
 
-            elif stratergy == "testid":
-                element=self.page.get_by_test_id(value)
+    def click(self,locator):
+        self._locate_element(locator).click()
 
-            elif stratergy == "text":
-                element=self.page.get_by_text(value)
+    def type(self,locator,data):
+        self._locate_element(locator).fill(data)
 
-            elif stratergy == "css":
-                element=self.page.locator(value)
-
-            elif stratergy == "xpath":
-                element=self.page.locator(value)
-
-            else:
-                raise ValueError(" Unsupported locator stratergy: %s",stratergy)
-
-            return element
-
-        except Exception as e:
-            log.info("Unable to locate your element !! check the DOM again \n execption message: %s",e)
+    def assert_title(self, title: str):
+        current_title=self.page.title()
+        assert current_title == title
+        return current_title
