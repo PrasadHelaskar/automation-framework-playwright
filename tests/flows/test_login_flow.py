@@ -14,5 +14,5 @@ class TestLoginFlow():
         login_page.type_password("secret_sauce")
         login_page.click_submit()
 
-        log.info("Login floe execution completed")
+        log.info("Login flow execution completed")
         
