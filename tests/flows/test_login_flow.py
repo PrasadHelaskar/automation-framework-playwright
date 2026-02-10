@@ -16,6 +16,7 @@ class TestLoginFlow():
 
         apis=api_recorder.get_records()
 
-        log.info(apis)
+        for api in apis:
+            log.info("Url: %s", api["url"])
 
         log.info("Login flow execution completed")
