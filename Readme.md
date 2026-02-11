@@ -1,6 +1,6 @@
 # 🚀 Automation Framework — Playwright
 
-![CI](https://github.com/PrasadHelaskar/automation-framework-playwright/actions/workflows/master-merge.yml/badge.svg)
+![CI](https://github.com/PrasadHelaskar/automation-framework-playwright/actions/workflows/regression-evening-run.yml/badge.svg)
 ![Playwright Framework](https://img.shields.io/badge/Playwright-Framework-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![Pytest](https://img.shields.io/badge/tested%20with-pytest-brightgreen)
