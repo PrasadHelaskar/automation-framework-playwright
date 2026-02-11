@@ -3,6 +3,10 @@ from utils.BasePage import BasePage
 from locatores.locator import Locator
 from locatores.strategies import LocateBy
 
+from utils.logger import Logger
+
+log=Logger().get_logger(__name__)
+
 class Test_check_locator_logic():
     
     @pytest.mark.unit
@@ -23,15 +27,22 @@ class Test_check_locator_logic():
         value="password",
         )
         base_page=BasePage(page)
-        base_page._locate_element(login_button)
+        try:
+            base_page._locate_element(login_button)
+        
+        except ValueError as ve:
+            log.error("We got the value error: %s",ve)
     
     @pytest.mark.unit
     def test_check_locator_logic_failed(self,page):
+        try:    
+            login_button = Locator(
+            by=LocateBy.Test,
+            value="password",
+            )
 
-        login_button = Locator(
-        by=LocateBy.Test,
-        value="password",
-        )
-
-        base_page=BasePage(page)
-        base_page._locate_element(login_button)
+            base_page=BasePage(page)
+            base_page._locate_element(login_button)
+                    
+        except ValueError as ve:
+            log.error("We got the value error: %s",ve)

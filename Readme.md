@@ -1,11 +1,10 @@
 # 🚀 Automation Framework — Playwright
 
-![Build Status](https://img.shields.io/badge/build-in_progress-yellow)
-![Test Status](https://img.shields.io/badge/tests-active-blue)
-![Coverage](https://img.shields.io/badge/coverage-planned-lightgrey)
-![Framework Stage](https://img.shields.io/badge/framework-phase--1-orange)
-![Continuous Development](https://img.shields.io/badge/continuous-development-brightgreen)
-
+![CI](https://github.com/PrasadHelaskar/automation-framework-playwright/actions/workflows/master-merge.yml/badge.svg)
+![Playwright Framework](https://img.shields.io/badge/Playwright-Framework-2EAD33?style=flat-square&logo=playwright&logoColor=white)
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![Pytest](https://img.shields.io/badge/tested%20with-pytest-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
 ---
 
 ## 📌 About
