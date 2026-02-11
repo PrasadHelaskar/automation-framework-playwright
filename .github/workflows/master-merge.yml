@@ -1,0 +1,48 @@
+name: Master Merge Unit Test
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    Unit-Tests:
+        runs-on: ubuntu-latest
+        env:
+            LOGGER_BASE_PATH: ${{ vars.LOGGER_BASE_PATH }}
+            USERNAME: ${{ vars.USERNAME }}
+            PASSWORD: ${{ vars.PASSWORD }}
+            URL: ${{ vars.URL }}
+        
+        steps:
+            - name: Initial Checkout
+              uses: actions/checkout@v4
+
+            - name: Python Set-up
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.11"
+            
+            - name: Dependency Installations
+              run: |
+                python3 -m pip install --upgrade pip
+                pip install -r requirements.txt 
+            
+            - name: Prepare artifact directories
+              run: |
+                mkdir -p logs 
+                mkdir -p reports
+            
+            - name: Running The Unit Test Cases
+              run: |
+                PYTHONPATH=$PWD pytest -vv -m unit tests/
+            
+            - name: Upload logs and reports
+              if: always()
+              uses: actions/upload-artifact@v4
+              with:
+                name: unit-run-artifacts
+                path: |
+                    logs/
+                    reports/
+
