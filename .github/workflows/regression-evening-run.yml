@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  self-heal-evening:
+  playwright-evening:
     name: Evening Playwright Stability Run
     runs-on: ubuntu-latest
     env:
