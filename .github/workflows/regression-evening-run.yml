@@ -2,7 +2,7 @@ name: Playwright Evening Run
 
 on:
   schedule:
-    - cron: "39 04 * * *"
+    - cron: "30 12 * * *"
   
   workflow_dispatch:
 
