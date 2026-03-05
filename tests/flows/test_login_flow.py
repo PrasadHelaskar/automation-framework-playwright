@@ -23,5 +23,3 @@ class TestLoginFlow():
             log.info("Url: %s", api["url"])
 
         log.info("Login flow execution completed")
-
-        assert False
